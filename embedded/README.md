@@ -1,3 +1,7 @@
+This repository is forked from: https://github.com/jkovacic/FreeRTOS-GCC-tm4c123glx
+We're including the compiler and flasher in this repo, and using this structure to
+build our software.
+
 ##About
 [FreeRTOS](http://www.freertos.org/), ported to the
 [Texas Instruments TM4C123GLX Launchpad](http://www.ti.com/tool/ek-tm4c123gxl), 
@@ -42,15 +46,20 @@ the Launchpad, using the simple cross platform CLI tool
 [LM4Tools](https://github.com/utzig/lm4tools):
 
 `/path/to/lm4flash image.bin`
+Or in the embedded directory run:
+`make flash`
 
 Alternatively you may use the GUI tool 
 [TI LMFlash Programmer](http://www.ti.com/tool/lmflashprogrammer), provided
 by Texas Instruments. It is available for Windows only.
 
+##Serial
 To establish the first serial connection, just open a serial terminal program 
-(e.g. _Hyper Terminal_, _GtkTerm_ or _Minicom_)
+(e.g. _Cutecom_, _Hyper Terminal_, _GtkTerm_ or _Minicom_)
 and configure the FTDI virtual COM port to 115200 bps, 8 data bits, no parity,
 1 stop bit. 
+
+If you cannot run Cutecom as root, add `QT_X11_NO_MITSHM=1` to /etc/environment
 
 To establish the second serial connection, connect the FTDI or PL2303HX cable's
 TX connection to pin B0, its RX connection to pin B1 and the GND connection to
