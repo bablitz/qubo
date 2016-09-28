@@ -1,4 +1,4 @@
-This repository is forked from: https://github.com/jkovacic/FreeRTOS-GCC-tm4c123glx
+This repository is forked from: https://github.com/jkovacic/FreeRTOS-GCC-tm4c123glx  
 We're including the compiler and flasher in this repo, and using this structure to
 build our software.
 
@@ -45,9 +45,9 @@ When the image _tiva.bin_ is successfully built, you may upload it to
 the Launchpad, using the simple cross platform CLI tool 
 [LM4Tools](https://github.com/utzig/lm4tools):
 
-`/path/to/lm4flash image.bin`
-Or in the embedded directory run:
-`make flash`
+`/path/to/lm4flash image.bin`  
+Or in the embedded directory run:  
+`make flash`  
 
 Alternatively you may use the GUI tool 
 [TI LMFlash Programmer](http://www.ti.com/tool/lmflashprogrammer), provided
