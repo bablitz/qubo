@@ -63,6 +63,8 @@ FREERTOS_PORT_SRC = $(FREERTOS_SRC)portable/$(PORT_COMP_TARG)
 
 # Directory with HW drivers' source files
 DRIVERS_SRC = drivers/
+KOVACIC_DRIVERS_SRC = $(DRIVERS_SRC)kovacic/
+TIVAWARE_DRIVERS_SRC = $(DRIVERS_SRC)tivaware/
 
 # Directory with demo specific source (and header) files
 APP_SRC = app/
@@ -115,13 +117,14 @@ TARGET = image.bin
 
 # Include paths to be passed to $(CC) where necessary
 INC_FREERTOS = $(FREERTOS_SRC)include/
-INC_DRIVERS = $(DRIVERS_SRC)include/
+KOVACIC_INC_DRIVERS = $(KOVACIC_DRIVERS_SRC)include/
+TIVAWARE_INC_DRIVERS = $(TIVAWARE_DRIVERS_SRC)include/
 
 # Complete include flags to be passed to $(CC) where necessary
-INC_FLAGS = $(INCLUDEFLAG)$(INC_FREERTOS) $(INCLUDEFLAG)$(APP_SRC) $(INCLUDEFLAG)$(FREERTOS_PORT_SRC) $(INCLUDEFLAG)$(INC_DRIVERS)
+INC_FLAGS = $(INCLUDEFLAG)$(INC_FREERTOS) $(INCLUDEFLAG)$(APP_SRC) $(INCLUDEFLAG)$(FREERTOS_PORT_SRC) $(INCLUDEFLAG)$(KOVACIC_INC_DRIVERS)
 
 # Dependency on HW specific settings
-DEP_BSP = $(INC_DRIVERS)bsp.h
+DEP_BSP = $(KOVACIC_INC_DRIVERS)bsp.h
 
 DEP_FRTOS_CONFIG = $(APP_SRC)/FreeRTOSConfig.h
 DEP_SETTINGS = $(DEP_FRTOS_CONFIG)
@@ -199,39 +202,39 @@ $(OBJDIR)heap_4.o : $(FREERTOS_MEMMANG_SRC)heap_4.c $(DEP_FRTOS_CONFIG)
 $(OBJDIR)heap_5.o : $(FREERTOS_MEMMANG_SRC)heap_5.c $(DEP_FRTOS_CONFIG)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-# Drivers
+# Kovacic's Drivers
 
-$(OBJDIR)sysctl.o : $(DRIVERS_SRC)sysctl.c $(DEP_BSP)
+$(OBJDIR)sysctl.o : $(KOVACIC_DRIVERS_SRC)sysctl.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)systick.o : $(DRIVERS_SRC)systick.c $(DEP_BSP)
+$(OBJDIR)systick.o : $(KOVACIC_DRIVERS_SRC)systick.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)nvic.o : $(DRIVERS_SRC)nvic.c $(DEP_BSP)
+$(OBJDIR)nvic.o : $(KOVACIC_DRIVERS_SRC)nvic.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)scb.o : $(DRIVERS_SRC)scb.c $(DEP_BSP)
+$(OBJDIR)scb.o : $(KOVACIC_DRIVERS_SRC)scb.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)interrupt.o : $(DRIVERS_SRC)interrupt.c
+$(OBJDIR)interrupt.o : $(KOVACIC_DRIVERS_SRC)interrupt.c
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)gpio.o : $(DRIVERS_SRC)gpio.c $(DEP_BSP)
+$(OBJDIR)gpio.o : $(KOVACIC_DRIVERS_SRC)gpio.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)uart.o : $(DRIVERS_SRC)uart.c $(DEP_BSP)
+$(OBJDIR)uart.o : $(KOVACIC_DRIVERS_SRC)uart.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)watchdog.o : $(DRIVERS_SRC)watchdog.c $(DEP_BSP)
+$(OBJDIR)watchdog.o : $(KOVACIC_DRIVERS_SRC)watchdog.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)led.o : $(DRIVERS_SRC)led.c $(DEP_BSP)
+$(OBJDIR)led.o : $(KOVACIC_DRIVERS_SRC)led.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)switch.o : $(DRIVERS_SRC)switch.c $(DEP_BSP)
+$(OBJDIR)switch.o : $(KOVACIC_DRIVERS_SRC)switch.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
-$(OBJDIR)fpu.o : $(DRIVERS_SRC)fpu.c $(DEP_BSP)
+$(OBJDIR)fpu.o : $(KOVACIC_DRIVERS_SRC)fpu.c $(DEP_BSP)
 	$(CC) $(CFLAG) $(CFLAGS) $(INC_FLAGS) $< $(OFLAG) $@
 
 
@@ -273,7 +276,7 @@ clean_obj :
 clean_intermediate : clean_obj
 	$(RM) *.elf
 	$(RM) *.img
-	
+
 clean : clean_intermediate
 	$(RM) *.bin
 
