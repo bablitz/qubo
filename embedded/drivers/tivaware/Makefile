@@ -51,6 +51,7 @@ all::
 	         make -C $${i} || exit $$?; \
 	     fi;                            \
 	 done
+	./symlink_objs
 
 clean::
 	@rm -f ${wildcard *~} __dummy__
