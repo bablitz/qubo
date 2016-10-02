@@ -29,7 +29,8 @@
 # of IA32 GNU/Linux TAR and manually unpacked it into /opt, so all paths 
 # will be relative to this one:
 
-TOOLCHAIN=arm-2013.11
+CURRENTDIR=$(pwd)
+TOOLCHAIN=$CURRENTDIR/arm-2013.11
 
 # Add a path to gnu-none-eabi-* executables:
 export PATH=$PATH:$TOOLCHAIN/bin
@@ -55,4 +56,5 @@ export C_INCLUDE_PATH=$TOOLCHAIN/arm-none-eabi/include
 
 
 # Variable TOOLCHAIN not needed anymore, it can be unset
+unset CURRENTDIR
 unset TOOLCHAIN
