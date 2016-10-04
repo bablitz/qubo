@@ -64,7 +64,6 @@ FREERTOS_PORT_SRC = $(FREERTOS_SRC)portable/$(PORT_COMP_TARG)
 # Directory with HW drivers' source files
 DRIVERS_SRC = drivers/
 KOVACIC_DRIVERS_SRC = $(DRIVERS_SRC)kovacic/
-TIVAWARE_DRIVERS_SRC = $(DRIVERS_SRC)tivaware/
 
 # Directory with demo specific source (and header) files
 APP_SRC = app/
@@ -118,7 +117,14 @@ TARGET = image.bin
 # Include paths to be passed to $(CC) where necessary
 INC_FREERTOS = $(FREERTOS_SRC)include/
 KOVACIC_INC_DRIVERS = $(KOVACIC_DRIVERS_SRC)include/
-TIVAWARE_INC_DRIVERS = $(TIVAWARE_DRIVERS_SRC)include/
+
+# Tivaware headers
+TIVAWARE_INC = drivers/tivaware/
+TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/driverlib/
+TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/grlib/
+TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/sensorlib/
+TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/usblib/
+
 
 # Complete include flags to be passed to $(CC) where necessary
 INC_FLAGS = $(INCLUDEFLAG)$(INC_FREERTOS) $(INCLUDEFLAG)$(APP_SRC) $(INCLUDEFLAG)$(FREERTOS_PORT_SRC) $(INCLUDEFLAG)$(KOVACIC_INC_DRIVERS)
