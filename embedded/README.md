@@ -16,9 +16,9 @@ The port is still at an early development stage and includes only very basic
 demo tasks. More complex tasks will be included in the future.
 
 ##Build
-Toolchain(includes compiler, linker...) is under toolchain directory. 
-The toolchain we're using is: https://launchpad.net/gcc-arm-embedded/+download 
-Version: gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2
+Toolchain(includes compiler, linker...) is under toolchain directory.  
+The toolchain we're using is: https://launchpad.net/gcc-arm-embedded/+download  
+Version: gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2  
 
 A convenience Bash script _setenv.sh_ is provided to set paths to toolchain's commands
 and libraries. You may edit it and adjust the paths according to your setup. To set up
