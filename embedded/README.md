@@ -16,8 +16,8 @@ The port is still at an early development stage and includes only very basic
 demo tasks. More complex tasks will be included in the future.
 
 ##Build
-Toolchain(includes compiler, linker...) is under toolchain directory.  
-The toolchain we're using is: https://launchpad.net/gcc-arm-embedded/+download  
+Toolchain(includes compiler, linker...) is under toolchain directory. The toolchain we're using is:  
+https://launchpad.net/gcc-arm-embedded/+download  
 Version: gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2  
 
 A convenience Bash script _setenv.sh_ is provided to set paths to toolchain's commands
@@ -31,9 +31,9 @@ If the build process is successful, the image file _image.bin_ will be ready to
 upload to the Launchpad.
 
 ##Drivers
-`drivers` directory has two subdirectories. `kovacic` includes the original drivers written by Jernej Kovacic.  
-`tivaware` is drivers from TI. `tivaware` directory has its own Makefile that is used to build those drivers.  
-After being built, the object files are symlinked into `obj` directory in `embedded` so the main Makefile in  
+`drivers` directory has two subdirectories. `kovacic` includes the original drivers written by Jernej Kovacic. 
+`tivaware` is drivers from TI. `tivaware` directory has its own Makefile that is used to build those drivers. 
+After being built, the object files are symlinked into `obj` directory in `embedded` so the main Makefile in 
 `embedded` can easily compile with them.  
 
 ##Run
