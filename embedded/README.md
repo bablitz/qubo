@@ -30,6 +30,12 @@ To build the image with the test application, just run `make` or `make rebuild`.
 If the build process is successful, the image file _image.bin_ will be ready to
 upload to the Launchpad.
 
+##Drivers
+`drivers` directory has two subdirectories. `kovacic` includes the original drivers written by Jernej Kovacic.  
+`tivaware` is drivers from TI. `tivaware` directory has its own Makefile that is used to build those drivers.  
+After being built, the object files are symlinked into `obj` directory in `embedded` so the main Makefile in  
+`embedded` can easily compile with them.  
+
 ##Run
 When the image _tiva.bin_ is successfully built, you may upload it to
 the Launchpad, using the simple cross platform CLI tool 
