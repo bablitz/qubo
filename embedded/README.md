@@ -15,21 +15,11 @@ updated with newer versions of FreeRTOS when they are released.
 The port is still at an early development stage and includes only very basic
 demo tasks. More complex tasks will be included in the future.
 
-
-##Prerequisites
-* _Tiva&#x2122; C series TM4C123GLX Launchpad_
-* A _Micro-B USB cable_, usually shipped with a Launchpad
-* _Sourcery CodeBench Lite Edition for ARM EABI_ toolchain (now owned by Mentor Graphics),
-based on GCC. See comments in _setenv.sh_ for more details about download and installation.
-* _GNU Make_
-* _[LM4Tools](https://github.com/utzig/lm4tools)_ or 
-_[TI LMFlash Programmer](http://www.ti.com/tool/lmflashprogrammer)_ 
-to upload images to the Launchpad
-* Optionally _[OpenOCD](http://openocd.sourceforge.net/)_ for debugging.
-See comments in _start\_openocd.sh_ for more details about installation.
-* Optionally a _FTDI or PL2303HX cable supporting +3.3V based TTL level UART signals_
-
 ##Build
+Toolchain(includes compiler, linker...) is under toolchain directory. 
+The toolchain we're using is: https://launchpad.net/gcc-arm-embedded/+download 
+Version: gcc-arm-none-eabi-5_4-2016q3-20160926-linux.tar.bz2
+
 A convenience Bash script _setenv.sh_ is provided to set paths to toolchain's commands
 and libraries. You may edit it and adjust the paths according to your setup. To set up
 the necessary paths, simply type:
