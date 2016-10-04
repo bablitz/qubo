@@ -119,11 +119,10 @@ INC_FREERTOS = $(FREERTOS_SRC)include/
 KOVACIC_INC_DRIVERS = $(KOVACIC_DRIVERS_SRC)include/
 
 # Tivaware headers
-TIVAWARE_INC = drivers/tivaware/
-TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/driverlib/
-TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/grlib/
-TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/sensorlib/
-TIVAWARE_INC_DRIVERLIB = $(TIVAWARE_INC)/usblib/
+TIVAWARE_INC_DRIVERLIB = drivers/tivaware/driverlib/
+TIVAWARE_INC_GRLIB = drivers/tivaware/grlib/
+TIVAWARE_INC_SENSORLIB = drivers/tivaware/sensorlib/
+TIVAWARE_INC_USBLIB = drivers/tivaware/usblib/
 
 
 # Complete include flags to be passed to $(CC) where necessary
